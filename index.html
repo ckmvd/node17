@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/Utils.js"></script>
+</head>
+<body>
+    <script>
+        /*var arr=[];
+        for(var i=2;i<80;i++){
+            var img=new Image();
+            img.addEventListener("load",loadHandler);
+            img.src="./img/"+i+"-.jpg";
+        }
+        function loadHandler(e) {
+            arr.push(this);
+            if(arr.length===78){
+                for(var i=0;i<arr.length;i++){
+                    console.log(arr[i].src);
+                }
+            }
+        }*/
+
+/*
+        var arr=[];
+        var num=2;
+//        加载第一张图片
+        var img=new Image();
+        img.addEventListener("load",loadHandler);
+        img.src="./img/"+num+"-.jpg";
+        function loadHandler(e) {
+//            把当前加载进来图片,push到数组中
+            arr.push(this);
+//            上一次的侦听事件删除
+            this.removeEventListener("load",loadHandler);
+//            让num++,可以加载下张图片的名称
+            num++;
+//            如果加载的图片到尾部
+            if(num>79){
+//                打印所有的图片地址
+                for(var i=0;i<arr.length;i++){
+                    console.log(arr[i].src);
+                }
+                return;
+            }
+//            创建新图片,加载这个新图片,并且重新进入当前事件函数中
+            var imgs=new Image();
+            imgs.addEventListener("load",loadHandler);
+            imgs.src="./img/"+num+"-.jpg";
+        }*/
+      /*  var arr=[];
+        for(var i=2;i<80;i++){
+            arr.push("./img/"+i+"-.jpg");
+        }*/
+        /*getImage(arr,callBackFun);
+
+        function getImage(arr,callback) {
+            var img=new Image();
+            img.arr=arr;
+            img.callback=callback;
+            img.imgList=[];
+            img.num=0;
+            img.addEventListener("load",loadHandler);
+            img.src=arr[img.num];
+        }
+
+        function loadHandler() {
+            this.imgList.push(this.cloneNode(false));
+            this.num++;
+            if(this.num>this.arr.length-1){
+                this.callback(this.imgList);
+                this.removeEventListener("load",loadHandler);
+                return;
+            }
+            this.src=this.arr[this.num];
+        }*/
+        var arr=[];
+        for(var i=1;i<11;i++){
+            arr.push("./img/icon"+(i<10 ? "0"+i : i)+".png");
+        }
+        Utils.loadImage(arr,callBackFun);
+
+//        数组中所有图片加载完成,就会调用callBackFun
+        function callBackFun(arr) {
+            for(var i=0;i<arr.length;i++){
+                console.log(arr[i].src);
+            }
+        }
+
+    </script>
+</body>
+</html>
